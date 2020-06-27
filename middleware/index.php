@@ -66,6 +66,7 @@ function createUser($username, $password, $firstName, $lastName, $ZC) {
         'firstName' => $firstName,
         'lastName' => $lastName,
         'iat' => time(),
+        'zip' => $ZC,
         'eat' => strtotime("+30 days")
     );
 
@@ -87,6 +88,7 @@ function verifyUser($username, $password) {
             'username' => $username,
             'firstName' => $document['firstName'],
             'lastName' => $document['lastName'],
+            'zip' => $ZC,
             'iat' => time(),
             'eat' => strtotime("+30 days")
         );
