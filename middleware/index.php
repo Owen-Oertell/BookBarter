@@ -15,11 +15,7 @@ $password = htmlspecialchars_decode($_GET["password"]);
 $firstName = htmlspecialchars_decode($_GET["first"]);
 $lastName = htmlspecialchars_decode($_GET["last"]);
 $reason = htmlspecialchars_decode($_GET["reason"]);
-<<<<<<< HEAD
 $zipcode = htmlspecialchars_decode($_GET["zipcode"]);
-=======
-$zipcode = htmlspecialchars_decode($_GET["areaCode"]);
->>>>>>> 2d03f5cf56fd76cc696be6e1beb7e6530302c1de
 
 // Create. The user has not been created and will be.
 if ($reason == "create") {
@@ -101,13 +97,8 @@ function verifyUser($username, $password) {
             'iat' => time(),
             'eat' => strtotime("+30 days")
         );
-<<<<<<< HEAD
-
-        $jwt = JWT::encode($payload, "5tblCfidHvSbVDQiOpv5OlsxNarHeIOlsbl4EDbCQBvsHyO2fgEfUaCvU", 'HS256');
-=======
     
         $jwt = JWT::encode($payload, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", 'HS256');
->>>>>>> 2d03f5cf56fd76cc696be6e1beb7e6530302c1de
         echo $jwt;
     } else {
         echo "The username or password is inccorect.";
