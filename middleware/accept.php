@@ -26,5 +26,4 @@ $topQueue = $document->queue[0];
 $collection->removeOne(['isbn' => $isbn, "seller" => $credentials->username]);
 
 echo json_encode($topQueue);
-
 ?>
