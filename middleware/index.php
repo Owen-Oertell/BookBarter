@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Allow Cross Origin Requests (other ips can request data)
 header("Access-Control-Allow-Origin: *");
 
@@ -15,6 +15,7 @@ $password = htmlspecialchars_decode($_GET["password"]);
 $firstName = htmlspecialchars_decode($_GET["first"]);
 $lastName = htmlspecialchars_decode($_GET["last"]);
 $reason = htmlspecialchars_decode($_GET["reason"]);
+$zipcode = htmlspecialchars_decode($_GET["zipcode"]);
 
 // Create. The user has not been created and will be.
 if ($reason == "create") {
@@ -91,13 +92,13 @@ function verifyUser($username, $password) {
             'iat' => time(),
             'eat' => strtotime("+30 days")
         );
-    
+
         $jwt = JWT::encode($payload, "5tblCfidHvSbVDQiOpv5OlsxNarHeIOlsbl4EDbCQBvsHyO2fgEfUaCvU", 'HS256');
         echo $jwt;
     } else {
         echo "The username or password is inccorect.";
     }
-    
+
 }
 
 function isTaken($username, $collection) {
