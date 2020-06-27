@@ -7,7 +7,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
 $jwt = htmlspecialchars_decode($_GET["jwt"]);
-$isbn = htmlspecialchars_decode($_GET["isbn"]);
 $credentials = json_decode(include "verifyJWT.php");
 if($credentials == "This key has been tampered with or is out of date." || $credentials == "Please Provide a JSON Web Token.") {
     echo $credentials;
@@ -19,16 +18,14 @@ $collection = $client->hackathon->userdata;
 
 
 $collection = $client->hackathon->traderoom;
-$cursor = $collection->find(["username" => $credentials->username]);
+$cursor = $collection->find(["seller" => $credentials->username]);
 
 $returnArray = array();
 
 foreach ($cursor as $document){
-    if (count($document->queue) >= 1){
+    if (count($document->queue) >= 1) {
         array_push($returnArray, $document);
     }
 }
-
-return $returnArray
-
+echo json_encode($returnArray);
 ?>

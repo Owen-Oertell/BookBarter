@@ -17,7 +17,7 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 $collection = $client->hackathon->userdata;
 
-$document = $collection->(["username" => $credentials->username]);
+$document = $collection->findOne(["username" => $credentials->username]);
 $books = $document->books;
 foreach ($books as $bk) {
     if($bk->ISBN == $isbn) {
