@@ -15,7 +15,7 @@ $password = htmlspecialchars_decode($_GET["password"]);
 $firstName = htmlspecialchars_decode($_GET["first"]);
 $lastName = htmlspecialchars_decode($_GET["last"]);
 $reason = htmlspecialchars_decode($_GET["reason"]);
-$zipcode = htmlspecialchars_decode($_GET["zipcode"]);
+$ZC = htmlspecialchars_decode($_GET["zipcode"]);
 
 // Create. The user has not been created and will be.
 if ($reason == "create") {
@@ -23,7 +23,7 @@ if ($reason == "create") {
         echo "Not all of the parameters were found. Please ensure that you pass: username, password, first, last as well.";
         return;
     }
-    createUser($username, $password, $firstName, $lastName);
+    createUser($username, $password, $firstName, $lastName, $ZC);
 
 // Verify. The user claims to be already in the system. Making sure that they are who they claim to be. Checking their username and password
 } else if ($reason == "verify") {
@@ -40,7 +40,7 @@ if ($reason == "create") {
 
 
 
-function createUser($username, $password, $firstName, $lastName) {
+function createUser($username, $password, $firstName, $lastName, $ZC) {
     // MONGO DB LOGIN
     $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
     // Select the user collection
