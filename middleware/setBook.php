@@ -7,7 +7,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
 $jwt = htmlspecialchars_decode($_GET["jwt"]);
-$bookArray = htmlspecialchars_decode($_GET["bookArray"]);
+$bookArray = json_decode(htmlspecialchars_decode($_GET["bookArray"]));
 $credentials = json_decode(include "verifyJWT.php");
 if($credentials == "This key has been tampered with or is out of date." || $credentials == "Please Provide a JSON Web Token.") {
     echo $credentials;
@@ -16,7 +16,5 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 $collection = $client->hackathon->userdata;
-
-$bookArray = array($bookArray);
-$collection->modifyOne(["username" => $credentials->username], ['$set' => ['books' => $bookArray]]);
+$collection->updateOne(["username" => $credentials->username], ['$set' => ['books' => $bookArray]]);
 ?>
