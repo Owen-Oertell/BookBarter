@@ -97,7 +97,6 @@ function verifyUser($username, $password) {
             'iat' => time(),
             'eat' => strtotime("+30 days")
         );
-    
         $jwt = JWT::encode($payload, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", 'HS256');
         echo $jwt;
     } else {
