@@ -1,17 +1,16 @@
 <?php
-
-$apiKeyMaps = 'AlzaSyDVE0fiTK1YUD67bu0y8j3HTLRQIL_rmek';
-$query = "http://maps.google.co.us/map/geo?q=".urlencode($zipcode)."&output=json&key=".$apiKeyMaps;
+$zipcode="30319";
+$apiKeyMaps = '1F2bEXGQTqWLGwBuqi5Vfty7Ent0lcPu';
+$query = "https://www.mapquestapi.com/geocoding/v1/address?key=$apiKeyMaps&inFormat=kvp&outFormat=json&location=$zipcode&thumbMaps=false";
 $data = file_get_contents($query);
-
 if($data){
   $data = json_decode($data);
   $longitude = $data->Placemark[0]->Point->coordinates[0];
   $latitude = $data->Placemark[0]->Point->coordinates[1];
-  return array($latitude,$longitude);
+  var_dump(array($latitude,$longitude));
 
 }else{
-  return array(0,0)
+  var_dump(array(0,0));
 }
 
  ?>
