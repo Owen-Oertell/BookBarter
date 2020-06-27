@@ -1,7 +1,7 @@
 FROM php
 WORKDIR /code
 
-RUN apt-get update && apt-get install -y openssl libssl-dev libcurl4-openssl-dev
+RUN apt-get update && apt-get install -y openssl libssl-dev libcurl4-openssl-dev php-xml
 # Install ands setup mongo
 RUN pecl install mongodb
 RUN touch /usr/local/etc/php/php.ini

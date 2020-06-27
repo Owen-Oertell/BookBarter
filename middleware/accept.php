@@ -17,13 +17,8 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 $collection = $client->hackathon->traderoom;
 
-
-
 $document = $collection->findOne(['isbn' => $isbn, "seller" => $credentials->username]);
-
 $topQueue = $document->queue[0];
-
 $collection->removeOne(['isbn' => $isbn, "seller" => $credentials->username]);
-
 echo json_encode($topQueue);
 ?>
