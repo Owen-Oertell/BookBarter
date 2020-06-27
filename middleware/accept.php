@@ -17,18 +17,16 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 $collection = $client->hackathon->userdata;
 
-
 $collection = $client->hackathon->traderoom;
-$cursor = $collection->find(["username" => $credentials->username]);
 
-$returnArray = array();
 
-foreach ($cursor as $document){
-    if (count($document->queue) >= 1){
-        array_push($returnArray, $document);
-    }
-}
 
-return $returnArray
+$document = $collection->findOne(['isbn' => $isbn, "seller" => $credentials->username]);
+
+$topQueue = $document->queue[0];
+
+$collection->removeOne(['isbn' => $isbn, "seller" => $credentials->username]);
+
+return $topQueue;
 
 ?>
