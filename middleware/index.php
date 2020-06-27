@@ -7,7 +7,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
 // Random Key. Needs to be Changed Later
-$key = "5tblCfidHvSbVDQiOpv5OlsxNarHeIOlsbl4EDbCQBvsHyO2fgEfUaCvU";
+$key = "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq";
 
 // Get all parameters for creating/validating user
 $username = htmlspecialchars_decode($_GET["username"]);
@@ -15,7 +15,11 @@ $password = htmlspecialchars_decode($_GET["password"]);
 $firstName = htmlspecialchars_decode($_GET["first"]);
 $lastName = htmlspecialchars_decode($_GET["last"]);
 $reason = htmlspecialchars_decode($_GET["reason"]);
+<<<<<<< HEAD
 $zipcode = htmlspecialchars_decode($_GET["zipcode"]);
+=======
+$zipcode = htmlspecialchars_decode($_GET["areaCode"]);
+>>>>>>> 2d03f5cf56fd76cc696be6e1beb7e6530302c1de
 
 // Create. The user has not been created and will be.
 if ($reason == "create") {
@@ -42,7 +46,7 @@ if ($reason == "create") {
 
 function createUser($username, $password, $firstName, $lastName) {
     // MONGO DB LOGIN
-    $client = new MongoDB\Client('mongodb+srv://dbrunner:dHOoEPz1HWw6Ihny@cluster0-uwqwt.azure.mongodb.net/test?retryWrites=true&w=majority');
+    $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
     // Select the user collection
     $collection = $client->hackathon->userdata;
 
@@ -51,14 +55,19 @@ function createUser($username, $password, $firstName, $lastName) {
         return;
     };
     $hashPass = hash("sha384",$password);
-
+    $location = include "location.php";
+    if($location[0] == 0 && $location[1] == 0) {
+        echo "This location is not valid";
+        return;
+    }
     $collection->insertOne([
         'username' => $username,
         'password' => $hashPass,
         'firstName' => $firstName,
         'lastName' => $lastName,
         'accountCreatedAt' => time(),
-        'files' => []
+        'location' => $location,
+        'books' => []
     ]);
 
     $payload = array(
@@ -70,13 +79,13 @@ function createUser($username, $password, $firstName, $lastName) {
         'eat' => strtotime("+30 days")
     );
 
-    $jwt = JWT::encode($payload, "5tblCfidHvSbVDQiOpv5OlsxNarHeIOlsbl4EDbCQBvsHyO2fgEfUaCvU", 'HS256');
+    $jwt = JWT::encode($payload, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", 'HS256');
     echo $jwt;
 }
 
 function verifyUser($username, $password) {
     // MONGO DB LOGIN
-    $client = new MongoDB\Client('mongodb+srv://dbrunner:dHOoEPz1HWw6Ihny@cluster0-uwqwt.azure.mongodb.net/test?retryWrites=true&w=majority');
+    $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
     // Select the user collection
 
     $hashPass = hash("sha384",$password);
@@ -92,8 +101,13 @@ function verifyUser($username, $password) {
             'iat' => time(),
             'eat' => strtotime("+30 days")
         );
+<<<<<<< HEAD
 
         $jwt = JWT::encode($payload, "5tblCfidHvSbVDQiOpv5OlsxNarHeIOlsbl4EDbCQBvsHyO2fgEfUaCvU", 'HS256');
+=======
+    
+        $jwt = JWT::encode($payload, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", 'HS256');
+>>>>>>> 2d03f5cf56fd76cc696be6e1beb7e6530302c1de
         echo $jwt;
     } else {
         echo "The username or password is inccorect.";
