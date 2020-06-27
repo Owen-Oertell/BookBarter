@@ -7,10 +7,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
 $jwt = htmlspecialchars_decode($_GET["jwt"]);
-$usr = htmlspecialchars_decode($_GET["otherUsername"]);
-$isbn = htmlspecialchars_decode($_GET["isbn"]);
-$replaceVal = htmlspecialchars_decode($_GET["replaceisbn"]);
-
+$isbn = json_decode(htmlspecialchars_decode($_GET["isbn"]));
 $credentials = json_decode(include "verifyJWT.php");
 if($credentials == "This key has been tampered with or is out of date." || $credentials == "Please Provide a JSON Web Token.") {
     echo $credentials;
@@ -18,16 +15,7 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 }
 
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
-$collection = $client->hackathon->traderoom;
+$collection = $client->hackathon->userdata;
 
-$collection->updateOne(["seller" => $usr, "isbn" => $isbn], ['$push' => 
-    ['queue' => [
-        "time" => time(),
-        "username" => $credentials->username,
-        "replacementISBN" => $replaceVal,
-        "email" => $credentials->email
-    ]
-]]);
-
-echo "Request added sucessfully";
+$collection->updateOne(["seller" => $credentials->username, "isbn" => $isbn], ['$pop' => ['books' => -1]]);
 ?>
