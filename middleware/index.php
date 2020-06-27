@@ -51,24 +51,18 @@ function createUser($username, $password, $firstName, $lastName, $ZC) {
         return;
     };
     $hashPass = hash("sha384",$password);
-    $location = include "location.php";
-    if($location[0] == 0 && $location[1] == 0) {
-        echo "This location is not valid";
-        return;
-    }
     $collection->insertOne([
         'username' => $username,
         'password' => $hashPass,
         'firstName' => $firstName,
         'lastName' => $lastName,
         'accountCreatedAt' => time(),
-        'location' => $location,
+        'zip' => $ZC,
         'books' => []
     ]);
 
     $payload = array(
         'username' => $username,
-        'password' => $hashPass,
         'firstName' => $firstName,
         'lastName' => $lastName,
         'iat' => time(),
@@ -91,7 +85,6 @@ function verifyUser($username, $password) {
     if($document['password'] == $hashPass) {
         $payload = array(
             'username' => $username,
-            'password' => $hashPass,
             'firstName' => $document['firstName'],
             'lastName' => $document['lastName'],
             'iat' => time(),

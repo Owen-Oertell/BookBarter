@@ -7,9 +7,8 @@ use \Firebase\JWT\JWT;
 if(empty($jwt)) {
     return "Please Provide a JSON Web Token.";
 }
-
 try{
-    $decoded = JWT::decode($jwt, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", array('HS512'));
+    $decoded = JWT::decode($jwt, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", array('HS256'));
     if($decoded->eat < time()) {
         throw new Exception("Error Processing Request", 1);
     }
