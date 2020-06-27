@@ -105,7 +105,7 @@ function verifyUser($username, $password) {
 
         $jwt = JWT::encode($payload, "5tblCfidHvSbVDQiOpv5OlsxNarHeIOlsbl4EDbCQBvsHyO2fgEfUaCvU", 'HS256');
 =======
-    
+
         $jwt = JWT::encode($payload, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", 'HS256');
 >>>>>>> 2d03f5cf56fd76cc696be6e1beb7e6530302c1de
         echo $jwt;
