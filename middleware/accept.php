@@ -19,23 +19,8 @@ $collection = $client->hackathon->userdata;
 
 $collection = $client->hackathon->traderoom;
 
-
-
 $document = $collection->findOne(['isbn' => $isbn, "seller" => $credentials->username]);
-
 $topQueue = $document->queue[0];
-
-$userCollection = $client->hackathon->userdata;
-
-
-
-
-
-
-
 $collection->removeOne(['isbn' => $isbn, "seller" => $credentials->username]);
-
-
-return $topQueue;
-
+echo json_encode($topQueue);
 ?>

@@ -15,6 +15,7 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 }
 foreach($bookArray as &$book) {
     $bookData = file_get_contents("https://www.goodreads.com/search/index.xml?key=7OTCz7iTXCT8fSgwrAizPQ&q=$book->ISBN");
+    
     var_dump($bookData);
 }
 
