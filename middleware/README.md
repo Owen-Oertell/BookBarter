@@ -5,3 +5,4 @@
 - Return Books given JWT and query.
 - Add book in trade queue
 - Confirm trade and make switch
+- Return image given book name and author
