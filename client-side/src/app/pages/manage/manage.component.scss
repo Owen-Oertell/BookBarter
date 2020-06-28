@@ -39,3 +39,47 @@
 	border: none;
 }
 
+.contact-form {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  
+    form {
+  
+      input {
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        color: #6f6f6f;
+        padding-left: 20px;
+        margin-bottom: 30px;
+        border: 1px solid;
+        border-radius: 4px;
+  
+        &::placeholder {
+          color: #6f6f6f;
+        }
+      }
+  
+      textarea {
+        width: 100%;
+        height: 150px;
+        font-size: 16px;
+        color: #6f6f6f;
+        padding-left: 20px;
+        margin-bottom: 24px;
+        border: 1px solid;
+        border-radius: 4px;
+        padding-top: 12px;
+        resize: none;
+  
+        &::placeholder {
+          color: #6f6f6f;
+        }
+      }
+  
+      button {
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+    }
+  }
