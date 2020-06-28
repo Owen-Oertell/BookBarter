@@ -12,5 +12,6 @@ export class ManageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }
 
