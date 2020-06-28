@@ -16,12 +16,17 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 $collection = $client->hackathon->userdata;
-
+$bookURL="";
+$bookAuthor="";
+$bookTitle="";
 $document = $collection->findOne(["username" => $credentials->username]);
 $books = $document->books;
 foreach ($books as $bk) {
     if($bk->ISBN == $isbn) {
         $bk->copies--;
+        $bookURL = $bk->imageURL;
+        $bookAuthor = $bk->author;
+        $bookTitle = $bk->title;
     }
 }
 $collection->updateOne(["username" => $credentials->username], ['$set' => ['books' => $books]]);
@@ -30,8 +35,10 @@ $collection = $client->hackathon->traderoom;
 $collection->insertOne([
     "seller" => $credentials->username,
     "isbn" => $isbn,
+    "title" => $bookTitle,
+    "author" => $bookAuthor,
+    "imageURL" => $bookURL,
     "zipcode" => $credentials->zip,
-    "tradeMade" => false,
     "dateCreated" => time(),
     "queue" => []
 ]);

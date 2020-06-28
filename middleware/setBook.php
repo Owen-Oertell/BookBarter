@@ -18,9 +18,12 @@ foreach($bookArray as &$book) {
     $bookData = json_decode($bookData, true);
     $book->title = $bookData["ISBN:$book->ISBN"]['title'];
     $book->author = $bookData["ISBN:$book->ISBN"]['authors'][0]['name'];
+    $book->imageURL = $bookData["ISBN:$book->ISBN"]['cover']['large'];
+
 }
 
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 $collection = $client->hackathon->userdata;
 $collection->updateOne(["username" => $credentials->username], ['$set' => ['books' => $bookArray]]);
+echo "Books sucessfully added";
 ?>
