@@ -4,11 +4,12 @@
     <input type="text" placeholder="Search..">
     <button class="button" type="submit" (click)="search()">Enter</button>
   </div>
-  <p class="message">Only within &nbsp;<input type="text" class="new" placeholder="10">&nbsp; miles</p>
-  <p class="message">Book number: &nbsp;<input type="text" class="new" placeholder="9781785031137">&nbsp; (ISBN 10)</p>
+  <p class="message">Only within &nbsp;<input type="text" class="new" placeholder="10" id="distance">&nbsp; miles</p>
+  <p class="message">Replace with book number: &nbsp;<input type="text" class="new" id="newisbn" placeholder="9781785031137">&nbsp; (ISBN 10)</p>
 </div>
 <div class="container">
   <div class="row" id="bookSearch">
+    <ng-template appCard></ng-template>
   </div>
 </div>
 <app-footer></app-footer>

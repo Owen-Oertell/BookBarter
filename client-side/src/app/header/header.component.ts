@@ -72,7 +72,7 @@ export class HeaderComponent implements OnInit {
         console.log(this.element);
         this.yourBook = (this.element["title"] + " by " + this.element["author"]);
         this.buyerBook = (this.element["queue"][0]["title"] + " by " + this.element["queue"][0]["author"]);
-        (<HTMLElement>document.getElementById("ban")).classList.toggle("banner");
+        (<HTMLElement>document.getElementById("ban")).classList.add("banner");
     });
   }
 
@@ -80,6 +80,7 @@ export class HeaderComponent implements OnInit {
   public rejectCurrentOffer() {
     this.httpGetAsync(`http://localhost:8000/deny.php/?jwt=${this.cookie.get("login")}&isbn=${this.element["isbn"]}`, (response) => {
       console.log(response);
+      (<HTMLElement>document.getElementById("ban")).classList.remove("banner");
     });
   }
 
@@ -87,6 +88,7 @@ export class HeaderComponent implements OnInit {
     this.httpGetAsync(`http://localhost:8000/accept.php/?jwt=${this.cookie.get("login")}&isbn=${this.element["isbn"]}`, (response) => {
       alert(`Please contact ${this.element["queue"][0]["email"]} to trade.`);
       console.log(response);
+      (<HTMLElement>document.getElementById("ban")).classList.remove("banner");
     });
   }
 

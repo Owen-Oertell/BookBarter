@@ -12,6 +12,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ManageComponent } from './pages/manage/manage.component';
+import { CardComponent } from './card/card.component';
+import { CardDirective } from './card.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ManageComponent } from './pages/manage/manage.component';
     ContactComponent,
     LoginComponent,
     SignupComponent,
-    ManageComponent
+    ManageComponent,
+    CardComponent,
+    CardDirective,
   ],
   imports: [
     BrowserModule,
