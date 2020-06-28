@@ -15,22 +15,38 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 }
 
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
-$userDataCollection = $client->hackathon->userdata;
+$userData = $client->hackathon->userdata;
+$tradeRoom = $client->hackathon->traderoom;
 
-$collection = $client->hackathon->traderoom;
+$tradeDoc = $tradeRoom->findOne(['isbn' => $isbn, "seller" => $credentials->username]);
+$topQueue = $tradeDoc->queue[0];
+$tradeRoom->removeOne(['isbn' => $isbn, "seller" => $credentials->username]);
 
-$document = $collection->findOne(['isbn' => $isbn, "seller" => $credentials->username]);
-$topQueue = $document->queue[0];
+// Find the seller and increment their first book, decrement the other book.
+$document = $userData->findOne(['username' => $credentials->username]);
+$bookArray = $document->books;
+$updated=false;
+/*
+while($i<count($bookArray)) {
+    if($bookArray[$i]->ISBN == $tradeDoc->ISBN) {
+        if($copies==1) {
+            array_splice($bookArray, $i, $i);
+        } else {
+            $bookArray[$i]->copies--;
+            $i++;
+        }
+    } else if ($bookArray[$i]->ISBN == $topQueue->replaceISBN) {
+        $bookArray[$i]->copies++;
+        $i++;
+        $updated=true;
+    } else {
+        $i++;
+    }
+}
+if(!$updated) {
+    array_push($bookArray, [""])
+}
+*/
 
-$sellerDocument = $userDataCollection->findOne(["username" => $credentials->username])
-$buyerDocument = $userDataCollection->$topQueue
-
-#if($buyerDocument->)
-
-
-
-$collection->updateOne(["username" => $credentials->username], ['$set' => ['books' => $bookArray]]);
-
-$collection->removeOne(['isbn' => $isbn, "seller" => $credentials->username]);
-echo json_encode($topQueue);
+//echo json_encode($topQueue);
 ?>
