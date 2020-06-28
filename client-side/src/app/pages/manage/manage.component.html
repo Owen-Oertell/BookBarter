@@ -1,5 +1,12 @@
 <app-header></app-header>
-<h1 style="text-align:center">Book Management System</h1>
+<div class="container">
+    <h1> Manage Your Library</h1>
+    <p>Enter your books in the format: Name, ISBN, Count<br> Ex.: The Martian,9780553418026,1</p>
+    <textarea name="" id="bookLib" rows="20"></textarea>
+    <button class="save" (click)="saveBooks()">Save My Library</button>
+</div>
+
+<!--<h1 style="text-align:center">Book Management System</h1>
 <div class = "tablepad">
     <table class="table table-dark">
         <thead>
@@ -32,4 +39,5 @@
             </tr>
         </tbody>
     </table>
-</div>
+</div>-->
+<app-footer></app-footer>

@@ -2,3 +2,23 @@
     padding: 70px;
 }
 
+
+.container {
+    padding: 30px;
+    h1 {
+        text-align: center;
+        margin: 30px;
+    }
+    
+    textarea {
+        width: 100%;
+    }
+    .save{
+        background: #4CAF50;
+        border: none;
+        padding: 10px;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+}
+
