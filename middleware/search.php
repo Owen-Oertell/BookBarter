@@ -19,18 +19,18 @@ $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-v
 
 $newCollection = $client->hackathon->traderoom;
 $cursor = $newCollection->find([]);
-$viableQuery = [];
+$viable_query = [];
 
 foreach($cursor as $document){
     $zipcode1 = $document->zipcode;
     $zipcode2 = $credentials->zip;
     $difference = include "zipCompare.php";
-    var_dump($difference);
     if(floatval($difference) > floatval($distance)){
         continue;
-    }
-    if(strstr($query,$document->author) || strstr($query,$document->title)){
-        array_push($viable_query,$document);
+    } else {
+        if(strstr(strtolower($document->author), strtolower($query)) != -1 || strstr(strtolower($document->title), strtolower($query)) != -1){
+            array_push($viable_query,$document);
+        }
     }
 }
 echo json_encode($viable_query);
