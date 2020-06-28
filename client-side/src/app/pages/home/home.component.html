@@ -1,194 +1,33 @@
 <app-header></app-header>
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-=======
-<app-search></app-search>
-<!--Categories - doesn't move around ("owl-carousel" doesn't work, might have to move the zip file)-->
-<section class="categories">
-    <div class="container">
-        <div class="row">
-            <div class="categories__slider owl-carousel">
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="assets/category1.jpg">
-                        <img src="../../../assets/category1.jpg" alt="" height="290dp" width="350dp">
-                        <h5><a href="#">Non-fiction</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="assets/category2.jpg">
-                        <img src="../../../assets/category2.jpg" alt="" height="290dp" width="350dp">
-                        <h5><a href="#">Fiction</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="assets/category3.jpg">
-                        <img src="../../../assets/category3.jpg" alt="" height="290dp" width="350dp">
-                        <h5><a href="#">Educational</a></h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+    <h3 class="margin">Who Are We?</h3>
+    <img src="https://cdn.pixabay.com/photo/2020/03/13/12/46/books-4927853_960_720.png" class="img-responsive img-circle margin" style="display:inline" alt="Book Image" width="350" height="350">
+    <h3>We are four students who want to help the world read</h3>
+  </div>
+  
+  <!-- Second Container -->
+  <div class="container-fluid bg-2 text-center">
+    <h3 class="margin">What Do We Do?</h3>
+    <p>We are submitting the Book Barter site as part of the Atlas Hackathon. We want a way for people to connect to other people so that people can easily trade for books that they wish to read. </p>
+  </div>
+  
+  <!-- Third Container (Grid) -->
+  <div class="container-fluid bg-3 text-center">    
+    <h3 class="margin">How Does It Work?</h3><br>
+    <div class="row">
+      <div class="col-sm-4">
+        <p>You add books up for trade to a collection with an ISBN number, the title, and author.</p>
+        <img src="https://storage.needpix.com/rsynced_images/book-297319_1280.png" class="img-responsive margin" style="width:100%" alt="Book Information Image">
+      </div>
+      <div class="col-sm-4"> 
+        <p>You search for books you want (near you) and join trade queues on other people's books.</p>
+        <img src="https://storage.needpix.com/rsynced_images/searching-2339723_1280.png" class="img-responsive margin" style="width:100%" alt="Searching Image">
+      </div>
+      <div class="col-sm-4"> 
+        <p>People can also see your books and ask you to trade for them with their own books.</p>
+        <img src="https://cdn.pixabay.com/photo/2012/04/02/17/32/network-24993_960_720.png" class="img-responsive margin" style="width:100%" alt="Trading Image">
+      </div>
     </div>
-</section>
-<!--end of categories-->
-<!--featured stuff-->
-<section class="featured spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Featured Products</h2>
-                </div>
-                <div class="featured__controls">
-                    <ul>
-                        <li class="active" data-filter="*">All</li>
-                        <li data-filter=".nonfiction">Non-fiction</li> <!--clicking the buttons doesn't work yet-->
-                        <li data-filter=".fiction">Fiction</li>
-                        <li data-filter=".educational">Educational</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row featured__filter">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix fiction"> 
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg"> <!--data-setbg doesn't work for some reason -->
-                        <img src="../../../assets/fiction5.jpg" alt="" height="300px" width="200px"> <!-- style="background-image: '../../../assets/fiction5.jpg;'" data-setbg="../../../assets/fiction5.jpg"-->
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Cooking the Books</a></h6>
-                        <h5>$10.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="assets/educational1.jpg">
-                        <img src="../../../assets/educational1.jpg" alt="" height="300px" width="200px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Infinite Powers</a></h6>
-                        <h5>$15.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="assets/educational2.jpg">
-                        <img src="../../../assets/educational2.jpg" alt="" height="300px" width="200px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">An Introduction to Statistical Learning</a></h6>
-                        <h5>$15.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="assets/educational4.jpg">
-                        <img src="../../../assets/educational4.jpg" alt="" height="300px" width="200px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">The Geography Book</a></h6>
-                        <h5>$12.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix fiction">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="assets/fiction2.jpg">
-                        <img src="../../../assets/fiction2.jpg" alt="" height="300px" width="200px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Harry Potter and the Chamber of Secrets</a></h6>
-                        <h5>$10.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="assets/nonfiction1.jpg">
-                        <img src="../../../assets/nonfiction1.jpg" alt="" height="300px" width="200px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Elon Musk</a></h6>
-                        <h5>$13.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix fiction">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="assets/fiction3.jpg">
-                        <img src="../../../assets/fiction3.jpg" alt="" height="300px" width="200px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Harry Potter and the Prisoner of Azkaban</a></h6>
-                        <h5>$10.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="assets/educational5.jpg">
-                        <img src="../../../assets/educational5.jpg" alt="" height="300px" width="200px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">The Usborne Book of Astronomy & Space</a></h6>
-                        <h5>$20.00</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--end of featured stuff-->
->>>>>>> 818887dfaf44d2ca35de924d9c41904aa7d5d4b4
+  </div>
 <app-footer></app-footer>
