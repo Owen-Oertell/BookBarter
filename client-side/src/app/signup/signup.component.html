@@ -1,1 +1,35 @@
-<p>signup works!</p>
+<app-header></app-header>
+<div class="bd">
+    <div class="center">
+        <h1>Signup</h1>
+        <form action="process.php" method="POST">
+            <div class="txt_field">
+                <input name="firstname" type="text" required>
+                <span></span>
+                <label>Enter First Name</label>
+            </div>
+            <div class="txt_field">
+                <input name="lastname" type="text" required>
+                <span></span>
+                <label>Enter Last Name</label>
+            </div>
+            <div class="txt_field">
+                <input name="username" type="text" required>
+                <span></span>
+                <label>Enter Username</label>
+            </div>
+            <div class="txt_field">
+                <input name="password" type="text" required>
+                <span></span>
+                <label>Enter Password</label>
+            </div>
+            <div class="txt_field">
+                <input name="zipcode" type="text" required>
+                <span></span>
+                <label>Enter Zipcode</label>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>
