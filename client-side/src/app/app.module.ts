@@ -8,7 +8,7 @@ import { SlidingComponent } from './sliding/sliding.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './pages/search/search.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ContactComponent } from './contact/contact.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
