@@ -1,25 +1,26 @@
 <app-header></app-header>
 
 
-<body>
-<div class="center">
-    <h1>Login</h1>
-    <form action="process.php" method="POST">
-        <div class="txt_field">
-            <input name="username" type="text" required>
-            <span></span>
-            <label>Username</label>
-        </div>
-        <div class="txt_field">
-            <input name="password" type="text" required>
-            <span></span>
-            <label>Password</label>
-        </div>
-        <div class="pass">Forgot Password?</div>
-        <button type="submit">Login</button>
-        <div class="signup_link">
-            <p>Not a member? <a href="#">Signup</a></p>
-        </div>
-    </form>
+<div class="bd">
+    <div class="center">
+        <h1>Login</h1>
+        <form action="process.php" method="POST">
+            <div class="txt_field">
+                <input name="username" type="text" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input name="password" type="text" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <button type="submit">Login</button>
+            <div class="signup_link">
+                <p>Not a member? <a href="/signup">Signup</a></p>
+            </div>
+        </form>
+    </div>
 </div>
-</body>
+
+<app-footer></app-footer>
