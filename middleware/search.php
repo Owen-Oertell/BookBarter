@@ -22,7 +22,8 @@ $collection->updateOne(["username" => $credentials->username], ['$set' => ['book
 
 $newCollection = $client->hackathon->traderoom;
 $cursor = $collection->find([]);
-$viableQuery = []
+$viableQuery = [];
+
 foreach($cursor as $document){
     $zipcode1 = $document->zip;
     $zipcode2 = $credentials->zip;
