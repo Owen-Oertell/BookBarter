@@ -12,8 +12,12 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ManageComponent } from './pages/manage/manage.component';
+<<<<<<< HEAD
 import { CardComponent } from './card/card.component';
 import { CardDirective } from './card.directive';
+=======
+import { TradeComponent } from './pages/trade/trade.component';
+>>>>>>> 7d8b0d0c86989404352c0bbe39cd56d139eab1c2
 
 @NgModule({
   declarations: [
@@ -27,8 +31,12 @@ import { CardDirective } from './card.directive';
     LoginComponent,
     SignupComponent,
     ManageComponent,
+<<<<<<< HEAD
     CardComponent,
     CardDirective,
+=======
+    TradeComponent
+>>>>>>> 7d8b0d0c86989404352c0bbe39cd56d139eab1c2
   ],
   imports: [
     BrowserModule,
