@@ -1,4 +1,5 @@
 <app-header></app-header>
+<<<<<<< HEAD
 
 
 
@@ -8,4 +9,186 @@
 
 
 
+=======
+<app-search></app-search>
+<!--Categories - doesn't move around ("owl-carousel" doesn't work, might have to move the zip file)-->
+<section class="categories">
+    <div class="container">
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="assets/category1.jpg">
+                        <img src="../../../assets/category1.jpg" alt="" height="290dp" width="350dp">
+                        <h5><a href="#">Non-fiction</a></h5>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="assets/category2.jpg">
+                        <img src="../../../assets/category2.jpg" alt="" height="290dp" width="350dp">
+                        <h5><a href="#">Fiction</a></h5>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="assets/category3.jpg">
+                        <img src="../../../assets/category3.jpg" alt="" height="290dp" width="350dp">
+                        <h5><a href="#">Educational</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end of categories-->
+<!--featured stuff-->
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Featured Products</h2>
+                </div>
+                <div class="featured__controls">
+                    <ul>
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".nonfiction">Non-fiction</li> <!--clicking the buttons doesn't work yet-->
+                        <li data-filter=".fiction">Fiction</li>
+                        <li data-filter=".educational">Educational</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row featured__filter">
+            <div class="col-lg-3 col-md-4 col-sm-6 mix fiction"> 
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg"> <!--data-setbg doesn't work for some reason -->
+                        <img src="../../../assets/fiction5.jpg" alt="" height="300px" width="200px"> <!-- style="background-image: '../../../assets/fiction5.jpg;'" data-setbg="../../../assets/fiction5.jpg"-->
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Cooking the Books</a></h6>
+                        <h5>$10.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="assets/educational1.jpg">
+                        <img src="../../../assets/educational1.jpg" alt="" height="300px" width="200px">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Infinite Powers</a></h6>
+                        <h5>$15.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="assets/educational2.jpg">
+                        <img src="../../../assets/educational2.jpg" alt="" height="300px" width="200px">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">An Introduction to Statistical Learning</a></h6>
+                        <h5>$15.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="assets/educational4.jpg">
+                        <img src="../../../assets/educational4.jpg" alt="" height="300px" width="200px">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">The Geography Book</a></h6>
+                        <h5>$12.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix fiction">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="assets/fiction2.jpg">
+                        <img src="../../../assets/fiction2.jpg" alt="" height="300px" width="200px">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Harry Potter and the Chamber of Secrets</a></h6>
+                        <h5>$10.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="assets/nonfiction1.jpg">
+                        <img src="../../../assets/nonfiction1.jpg" alt="" height="300px" width="200px">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Elon Musk</a></h6>
+                        <h5>$13.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix fiction">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="assets/fiction3.jpg">
+                        <img src="../../../assets/fiction3.jpg" alt="" height="300px" width="200px">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Harry Potter and the Prisoner of Azkaban</a></h6>
+                        <h5>$10.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix nonfiction educational">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="assets/educational5.jpg">
+                        <img src="../../../assets/educational5.jpg" alt="" height="300px" width="200px">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">The Usborne Book of Astronomy & Space</a></h6>
+                        <h5>$20.00</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end of featured stuff-->
+>>>>>>> 818887dfaf44d2ca35de924d9c41904aa7d5d4b4
 <app-footer></app-footer>
