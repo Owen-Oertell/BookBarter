@@ -14,9 +14,10 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
     return $credentials;
 }
 foreach($bookArray as &$book) {
-    $bookData = file_get_contents("https://www.goodreads.com/search/index.xml?key=7OTCz7iTXCT8fSgwrAizPQ&q=$book->ISBN");
-    
-    var_dump($bookData);
+    $xml =  ($queryString);
+    $json = json_encode($xml);
+    $array = json_decode($json,TRUE);
+    var_dump($array);
 }
 
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
