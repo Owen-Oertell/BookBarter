@@ -1,3 +1,4 @@
+import { SearchComponent } from './pages/search/search.component';
 import { ManageComponent } from './pages/manage/manage.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'manage', component: ManageComponent}
+  {path: 'manage', component: ManageComponent},
+  {path: 'search', component: SearchComponent}
 ];
 
 @NgModule({

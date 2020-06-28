@@ -2,34 +2,40 @@
 <div class="bd">
     <div class="center">
         <h1>Signup</h1>
-        <form action="process.php" method="POST">
+        <h2>{{signupError}}</h2>
+        <div class="form">
             <div class="txt_field">
-                <input name="firstname" type="text" required>
+                <input id="firstname" type="text" required>
                 <span></span>
-                <label>First Name</label>
+                <label>Enter First Name</label>
             </div>
             <div class="txt_field">
-                <input name="lastname" type="text" required>
+                <input id="lastname" type="text" required>
                 <span></span>
-                <label>Last Name</label>
+                <label>Enter Last Name</label>
             </div>
             <div class="txt_field">
-                <input name="username" type="text" required>
+                <input id="email" type="text" required>
                 <span></span>
-                <label>Username</label>
+                <label>Enter Email</label>
             </div>
             <div class="txt_field">
-                <input name="password" type="text" required>
+                <input id="username" type="text" required>
                 <span></span>
-                <label>Password</label>
+                <label>Enter Username</label>
             </div>
             <div class="txt_field">
-                <input name="zipcode" type="text" required>
+                <input id="password" type="password" required>
                 <span></span>
-                <label>Zipcode</label>
+                <label>Enter Password</label>
             </div>
-            <button type="submit">Sign Up</button>
-        </form>
+            <div class="txt_field">
+                <input id="zipcode" type="text" required>
+                <span></span>
+                <label>Enter Zipcode</label>
+            </div>
+            <button type="submit" id="submit" (click)="addToDB()">Sign Up</button>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>
