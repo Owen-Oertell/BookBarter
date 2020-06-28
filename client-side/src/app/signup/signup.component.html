@@ -2,7 +2,7 @@
 <div class="bd">
     <div class="center">
         <h1>Signup</h1>
-        <form action="process.php" method="POST">
+        <div class="form">
             <div class="txt_field">
                 <input name="firstname" type="text" required>
                 <span></span>
@@ -28,8 +28,8 @@
                 <span></span>
                 <label>Enter Zipcode</label>
             </div>
-            <button type="submit">Sign Up</button>
-        </form>
+            <button type="submit" id="submit" (click)="addToDB()">Sign Up</button>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>
