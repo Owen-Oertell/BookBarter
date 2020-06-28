@@ -1,6 +1,7 @@
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { removeSummaryDuplicates, ParseError } from '@angular/compiler';
+import { __core_private_testing_placeholder__ } from '@angular/core/testing';
 
 @Component({
   selector: 'app-manage',
@@ -10,16 +11,18 @@ import { removeSummaryDuplicates, ParseError } from '@angular/compiler';
 export class ManageComponent implements OnInit {
 
   constructor(private cookie: CookieService) { }
+  public textToDisp=""
 
   async ngOnInit() {
     let jwt = this.cookie.get("login");
     this.httpGetAsync(`http://localhost:8000/getBook.php/?jwt=${jwt}`, (response) => {
       let parsed = JSON.parse(response);
       let bookLib = "";
-      parsed[0].forEach(element => {
+      console.log(parsed);
+      parsed.forEach(element => {
         bookLib += element['title'] + "," + element['ISBN'] + "," + element['copies'] + "\r\n";
       });
-      document.getElementById("bookLib").innerHTML = bookLib;
+      (<HTMLInputElement>document.getElementById("bookLib")).value = bookLib;
     })
   }
 
@@ -34,24 +37,26 @@ export class ManageComponent implements OnInit {
   }
 
   async saveBooks() {
+    let bookDoc = (<HTMLInputElement>document.getElementById("bookLib")).value.trim();
+    
     let jwt = this.cookie.get("login");
-    let bookDoc = "";
-    bookDoc = document.getElementById("bookLib").innerHTML
     let valArray = [];
-    valArray = bookDoc.split("\r\n");
+    valArray = bookDoc.split("\n");
     let returnArray = [];
     valArray.forEach(element => {
       let elementarray = [];
       elementarray = element.split(",");
       let object = {
-        ISBN: elementarray[1],
-        title: elementarray[0],
-        copies: elementarray[2]
+        "ISBN": elementarray[1],
+        "title": elementarray[0],
+        "copies": elementarray[2]
       }
       returnArray.push(object);
     });
-    this.httpGetAsync(`http://localhost:8000/getBook.php/?jwt=${jwt}&booksArray=${returnArray}`, () => { });
-
-
+    let returnVal = JSON.stringify(returnArray);
+    this.httpGetAsync(`http://localhost:8000/setBook.php/?jwt=${jwt}&bookArray=${returnVal}`, (response) => {
+      var ts = new Date();
+      this.textToDisp = "Saved on " + ts.toDateString();
+    }); 
   }
-
+}

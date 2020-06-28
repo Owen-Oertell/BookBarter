@@ -1,7 +1,8 @@
 <app-header></app-header>
 <div class="container">
     <h1> Manage Your Library</h1>
-    <p>Enter your books in the format: Name, ISBN, Count<br> Ex.: The Martian,9780553418026,1</p>
+    <h3>{{textToDisp}}</h3>
+    <p>Enter your books in the format: Name, ISBN 10, Count<br> Ex.: The Martian,0553418025,1</p>
     <textarea name="" id="bookLib" rows="20"></textarea>
     <button class="save" (click)="saveBooks()">Save My Library</button>
 </div>

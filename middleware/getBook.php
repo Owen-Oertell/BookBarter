@@ -15,7 +15,7 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
 
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 $collection = $client->hackathon->userdata;
-
 $document = $collection->findOne(["username" => $credentials->username]);
-echo json_encode(array($document->books));
+//var_dump($document->books);
+echo json_encode($document->books);
 ?>
