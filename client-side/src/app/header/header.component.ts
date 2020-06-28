@@ -2,6 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from "ngx-cookie-service";
 import { getPermission } from '../globals';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ export class HeaderComponent implements OnInit {
   public username;
   public buyerBook;
   public yourBook;
+  public element;
 
   constructor(private cookie: CookieService) {
   }
@@ -64,19 +66,29 @@ export class HeaderComponent implements OnInit {
   private checkIfOffers() {
     this.httpGetAsync(`http://localhost:8000/timeout.php/?jwt=${this.cookie.get("login")}`, (response) => {
       let parsed = JSON.parse(response);
-      parsed.forEach(element => {
+      this.element = parsed[0];
         // Trade!
-        console.log(element);
-        this.yourBook = (element["title"] + " by " + element["author"]);
-        this.buyerBook = (element["queue"][0]["title"] + " by " + element["queue"][0]["author"]);
+        
+        console.log(this.element);
+        this.yourBook = (this.element["title"] + " by " + this.element["author"]);
+        this.buyerBook = (this.element["queue"][0]["title"] + " by " + this.element["queue"][0]["author"]);
         (<HTMLElement>document.getElementById("ban")).classList.toggle("banner");
-      });
-      
-    })
+    });
   }
 
 
+  public rejectCurrentOffer() {
+    this.httpGetAsync(`http://localhost:8000/deny.php/?jwt=${this.cookie.get("login")}&isbn=${this.element["isbn"]}`, (response) => {
+      console.log(response);
+    });
+  }
 
+  public acceptCurrentOffer() {
+    this.httpGetAsync(`http://localhost:8000/accept.php/?jwt=${this.cookie.get("login")}&isbn=${this.element["isbn"]}`, (response) => {
+      alert(`Please contact ${this.element["queue"][0]["email"]} to trade.`);
+      console.log(response);
+    });
+  }
 
 
   public logout() {
