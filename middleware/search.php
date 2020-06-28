@@ -6,7 +6,6 @@ header("Access-Control-Allow-Origin: *");
 require_once __DIR__ . '/vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
-<<<<<<< HEAD
 $jwt = htmlspecialchars_decode($_GET["jwt"]);
 $query = json_decode(htmlspecialchars_decode($_GET["query"]));
 $distance = json_decode(htmlspecialchars_decode($_GET["distance"]));
@@ -16,19 +15,15 @@ if($credentials == "This key has been tampered with or is out of date." || $cred
     return $credentials;
 }
 
-=======
-$query = json_decode(htmlspecialchars_decode($_GET["query"]));
-$distance = json_decode(htmlspecialchars_decode($_GET["distance"]));
->>>>>>> 7b1a1858500e514138f6b869dc0b64cfe6178e87
 $client = new MongoDB\Client('mongodb+srv://dbrunner:AWsAcctcHfb1g8FG@cluster0-vixlf.mongodb.net/hackathon?retryWrites=true&w=majority');
 
 $collection = $client->hackathon->userdata;
 $collection->updateOne(["username" => $credentials->username], ['$set' => ['books' => $bookArray]]);
 
-<<<<<<< HEAD
 $newCollection = $client->hackathon->traderoom;
 $cursor = $collection->find([]);
-$viableQuery = []
+$viableQuery = [];
+
 foreach($cursor as $document){
     $zipcode1 = $document->zip;
     $zipcode2 = $credentials->zip;
@@ -41,7 +36,4 @@ foreach($cursor as $document){
     }
 }
 echo json_encode($viable_query);
-=======
-
->>>>>>> 7b1a1858500e514138f6b869dc0b64cfe6178e87
 ?>
