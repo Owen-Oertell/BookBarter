@@ -26,7 +26,8 @@ export class HeaderComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const nAllowed: String[] = ["/search"];
+    // Remember to add thsi back "/search"
+    const nAllowed: String[] = [];
     const Allowed: String[] = ["/login", "/signup"];
     let pageExt = window.location.pathname;
     
@@ -54,6 +55,10 @@ export class HeaderComponent implements OnInit {
     }
     
   }
+
+ 
+
+
 
   public logout() {
     this.cookie.delete("login");
