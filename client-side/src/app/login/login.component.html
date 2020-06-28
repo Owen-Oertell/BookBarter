@@ -4,22 +4,23 @@
 <div class="bd">
     <div class="center">
         <h1>Login</h1>
-        <form action="process.php" method="POST">
+        <h2>{{loginError}}</h2>
+        <div class="form">
             <div class="txt_field">
-                <input name="username" type="text" required>
+                <input id="username" type="text" required>
                 <span></span>
                 <label>Username</label>
             </div>
             <div class="txt_field">
-                <input name="password" type="text" required>
+                <input id="password" type="password" required>
                 <span></span>
                 <label>Password</label>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" (click)="verify()">Login</button>
             <div class="signup_link">
                 <p>Not a member? <a href="/signup">Signup</a></p>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 

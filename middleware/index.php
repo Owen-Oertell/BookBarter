@@ -95,7 +95,7 @@ function verifyUser($username, $password) {
         $jwt = JWT::encode($payload, "41ffetjVjyQ5EaIDDbNuclXG7jaSGPijL5nAp2GVSYod8kGaCjcETQHGGdB5f1WswZurPSw0bJaYTJCq", 'HS256');
         echo $jwt;
     } else {
-        echo "The username or password is inccorect.";
+        echo "The username or password is incorect.";
     }
 
 }
