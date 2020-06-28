@@ -25,12 +25,12 @@ export class HeaderComponent implements OnInit {
     xmlHttp.send(null);
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     const nAllowed: String[] = ["/search"];
     const Allowed: String[] = ["/login", "/signup"];
     let pageExt = window.location.pathname;
     
-    let userInformation = getPermission(this.cookie);
+    let userInformation = await getPermission(this.cookie);
     if (userInformation['error'] == undefined) {
       this.username = userInformation["username"];
       this.logged = true;
