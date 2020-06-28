@@ -1,63 +1,48 @@
-.hero__search {
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.hero__search__form {
-    width: 610px;
-    height: 50px;
-    border: 1px solid;
-    position: relative;
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
     float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: left;
+    width: 20%;
+    height: 47px;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 
-    form {
-
-        .hero__search__categories {
-            width: 30%;
-            float: left;
-            font-size: 16px;
-            color: black;
-            font-weight: 700;
-            padding-left: 18px;
-            padding-top: 11px;
-            position: relative;
-
-            &:after {
-                position: absolute;
-                right: 0;
-                top: 14px;
-                height: 20px;
-                width: 1px;
-                background: black;
-                opacity: .1;
-                content: "";
-            }
-
-            span {
-                position: absolute;
-                right: 14px;
-                top: 14px;
-            }
-        }
-
-        input {
-            width: 70%;
-            border: none;
-            height: 48px;
-            font-size: 16px;
-            color: #b2b2b2;
-            padding-left: 20px;
-
-            &::placeholder {
-                color: #b2b2b2;
-            }
-        }
-
-        button {
-            position: absolute;
-            right: 0;
-            top: -1px;
-            height: 50px;
-        }
-    }
-}
+  .container {
+      padding: 30px;
+  }
+  .new {
+      width: 50px;
+  }
+  p {
+    margin-top: 10px;
+  }
